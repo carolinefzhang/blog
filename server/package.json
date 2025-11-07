@@ -1,0 +1,48 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "postinstall": "npm run compile",
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/server.js",
+    "dev": "tsx watch ./src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@apollo/server": "^5.1.0",
+    "@apollo/subgraph": "^2.11.3",
+    "@as-integrations/express5": "^1.1.2",
+    "@graphql-tools/load": "^8.1.4",
+    "@graphql-tools/load-files": "^7.0.1",
+    "@graphql-tools/merge": "^9.1.2",
+    "@graphql-tools/schema": "^10.0.27",
+    "@graphql-tools/stitch": "^10.1.1",
+    "@graphql-tools/url-loader": "^9.0.2",
+    "cors": "^2.8.5",
+    "cross-fetch": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "graphql": "^16.12.0",
+    "graphql-http": "^1.22.4",
+    "graphql-subscriptions": "^3.0.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-ws": "^6.0.6",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0",
+    "subscriptions-transport-ws": "^0.11.0",
+    "ws": "^8.18.3"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
