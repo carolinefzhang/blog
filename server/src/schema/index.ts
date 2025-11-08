@@ -4,16 +4,17 @@ import path from "path";
 
 const __dirname = import.meta.dirname;
 
-console.log(__dirname);
+console.log('Schema directory:', __dirname);
 
-const typesArray = loadFilesSync(
-  path.join(__dirname, '../features/**/*.graphql'), { extensions: ["graphql"] }
-).concat(
-  loadFilesSync(
-    path.join(__dirname, '../shared/**/*.graphql'), { extensions: ["graphql"] }
-  )
-);
+// Load from source directory, not dist
+const srcDir = path.resolve(__dirname, '../../src');
+const featuresPath = path.join(srcDir, 'features/**/*.graphql');
+const sharedPath = path.join(srcDir, 'shared/**/*.graphql');
 
+const featuresFiles = loadFilesSync(featuresPath, { extensions: ["graphql"] });
+const sharedFiles = loadFilesSync(sharedPath, { extensions: ["graphql"] });
+
+const typesArray = featuresFiles.concat(sharedFiles);
 const typeDefs = mergeTypeDefs(typesArray);
 
 export default typeDefs;
