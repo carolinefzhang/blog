@@ -3,13 +3,13 @@ import express from 'express';
 import cors from 'cors';
 import { createServer } from 'http';
 import { ApolloServer } from '@apollo/server';
-import localSchema from './schema/local.schema';
+import localSchema from './schema/local.schema.js';
 
 import { expressMiddleware } from '@as-integrations/express5';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import { execute, subscribe } from 'graphql';
-import { verifyToken } from './shared/auth';
-import startGateway from './gateway';
+import { verifyToken } from './shared/auth.js';
+import startGateway from './gateway.js';
 
 const PORT = process.env.PORT || 5050;
 const app = express() as any;

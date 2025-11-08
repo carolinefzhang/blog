@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { stitchSchemas } from '@graphql-tools/stitch';
-import localSchema from './schema/local.schema';
-import createRemoteSchema from './schema/remote.schema';
+import localSchema from './schema/local.schema.js';
+import createRemoteSchema from './schema/remote.schema.js';
 
 const startGateway = async () => {
     const remoteSchema = await createRemoteSchema();
