@@ -7,12 +7,16 @@ const Tiptap = ({ content, onChange }: { content: string; onChange: (content: st
     const [, forceUpdate] = useState({})
     
     const editor = useEditor({
-        extensions: [StarterKit, Image.configure(
-            {
-                inline: true,
-                allowBase64: true
-            }
-        )], // define your extension array
+        extensions: [
+            StarterKit, 
+            Image.configure({
+                inline: false,
+                allowBase64: true,
+                HTMLAttributes: {
+                    class: 'max-w-full h-auto',
+                },
+            })
+        ], // define your extension array
         content: content, // your content string
         onUpdate: ({ editor }) => {
             forceUpdate({})
@@ -24,10 +28,16 @@ const Tiptap = ({ content, onChange }: { content: string; onChange: (content: st
     })
 
     const addImage = () => {
-        const url = window.prompt('URL')
+        const url = window.prompt('Enter image URL:')
 
         if (url) {
-            editor?.chain().focus().setImage({ src: url }).run()
+            console.log('Adding image with URL:', url)
+            editor?.chain().focus().setImage({ 
+                src: url,
+                alt: 'Image',
+                title: 'Image'
+            }).run()
+            console.log('Image added, current HTML:', editor?.getHTML())
         }
     }
 
