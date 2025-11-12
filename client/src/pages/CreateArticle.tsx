@@ -1,4 +1,3 @@
-import React from 'react'
 import { useMutation } from '@apollo/client/react'
 import { gql } from '@apollo/client'
 import { Formik } from 'formik'
