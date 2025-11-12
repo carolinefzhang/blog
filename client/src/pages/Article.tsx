@@ -120,7 +120,7 @@ const Article = () => {
       {data?.article ? (
         <article>
           <h1 className='text-xl font-bold'>{data.article.title}</h1>
-          <div className='my-4 prose max-w-none' dangerouslySetInnerHTML={{ __html: data.article.content }} />
+          <div className='my-4 max-w-none prose-content' dangerouslySetInnerHTML={{ __html: data.article.content }} />
           <button className='bg-slate-500 text-white px-4 py-2 rounded hover:bg-slate-700' onClick={handleClick}>Edit</button>
           <button className='mt-4 ml-2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700' onClick={() => navigate(-1)}>Go Back</button>
         </article>

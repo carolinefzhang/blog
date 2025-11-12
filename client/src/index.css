@@ -1,10 +1,20 @@
 @import "tailwindcss";
 
-/* Basic editor styles */
-.tiptap {
+/* CSS Variables */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray-2: #e2e8f0;
+    --gray-3: #cbd5e1;
+    --purple: #6366f1;
+    --purple-light: #e0e7ff;
+}
+
+/* Shared prose styles for both editor and display */
+.prose-content, .tiptap {
     :first-child {
         margin-top: 0;
-    } 
+    }
 
     /* Heading styles */
     h1,
@@ -16,6 +26,7 @@
         line-height: 1.1;
         margin-top: 2.5rem;
         text-wrap: pretty;
+        font-weight: bold;
     }
 
     h1,
@@ -75,15 +86,44 @@
 
     hr {
         border: none;
-        border-top: 1px solid var(--gray-2);
+        border-top: 2px solid var(--gray-2);
         margin: 2rem 0;
+        width: 100%;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    ol {
+        list-style-type: decimal;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin: 0.5rem 0;
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
     }
 }
 
-ul {
-    list-style-type: disc;
-}
-
-li {
-    margin: 0.5rem;
+.tiptap:focus {
+    outline: none;
 }

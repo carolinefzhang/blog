@@ -70,6 +70,13 @@ const Tiptap = ({ content, onChange }: { content: string; onChange: (content: st
                     Strike
                 </button>
                 <button
+                    onClick={() => editor.chain().focus().toggleCode().run()}
+                    className={`px-3 py-1 border rounded ${editor.isActive('code') ? 'bg-slate-700 text-white' : 'bg-white'}`}
+                    type="button"
+                >
+                    Code
+                </button>
+                <button
                     onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
                     className={`px-3 py-1 border rounded ${editor.isActive('heading', { level: 1 }) ? 'bg-slate-700 text-white' : 'bg-white'}`}
                     type="button"
@@ -89,6 +96,13 @@ const Tiptap = ({ content, onChange }: { content: string; onChange: (content: st
                     type="button"
                 >
                     • List
+                </button>
+                <button
+                    onClick={() => editor.chain().focus().setHorizontalRule().run()}
+                    className="px-3 py-1 border rounded bg-white hover:bg-gray-100"
+                    type="button"
+                >
+                    ─── HR
                 </button>
                 <button
                     onClick={addImage}
