@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <div className='font-mono h-screen flex flex-col'>
+    <div className='font-roboto h-screen flex flex-col'>
       <Header />
       <Layout>
         <Routes>
